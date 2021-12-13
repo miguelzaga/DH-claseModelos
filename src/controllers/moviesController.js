@@ -15,13 +15,20 @@ const moviesController = {
         db.Movie
         .findByPk(req.params.id)
         .then(function(movie){
-                return res.render("moviesDetail", {movie: movie})
+            return res.render("moviesDetail", {movie: movie})
             })
         .catch(function(err){
             return res.send(err)
         })
-
-        
+    },
+    new: function(req, res){
+        db.Movie
+            .findAll({
+                order: [["release_date", "DESC"]]
+            })
+            .then(function(movies){
+                return res.render("newestMovies", {movies: movies})
+            })
     }
 }
 
