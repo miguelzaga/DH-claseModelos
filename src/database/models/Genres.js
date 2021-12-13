@@ -14,6 +14,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER}
     },
     {
+        tableName : "genres",
         timestamps : false
     })
 

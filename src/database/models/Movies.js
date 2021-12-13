@@ -10,6 +10,7 @@ module.exports = function (sequelize, dataTypes){
         awards: {type: dataTypes.INTEGER}
     },
     {
+        tableName : "movies",
         timestamps : false
     })
 

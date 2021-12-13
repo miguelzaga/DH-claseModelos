@@ -11,6 +11,10 @@ const moviesController = {
             .then(function(movies){
                 return res.render("moviesList", {movies: movies})
             })
+            .catch(function(err){
+                return res.send(err)
+            })
+            
     }
 }
 
