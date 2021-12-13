@@ -1,10 +1,17 @@
-module.exports = function (sequelize, DataType){
+module.exports = function (sequelize, dataTypes){
     const Genre = sequelize.define('Genre',
     {
-        id: DataType,
-        name: DataType.STRING,
-        ranking: DataType.INT,
-        active: DataType.INT
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            type: dataTypes.INTEGER
+        },
+        name: {
+            type: dataTypes.STRING},
+        ranking: {
+            type: dataTypes.INTEGER},
+        active: {
+            type: dataTypes.INTEGER}
     },
     {
         timestamps : false

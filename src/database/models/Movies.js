@@ -1,10 +1,13 @@
-module.exports = function (sequelize, DataType){
+module.exports = function (sequelize, dataTypes){
     const Movie = sequelize.define('Movie',
     {
-        id: DataType,
-        title: DataType.STRING,
-        rating: DataType.INT,
-        awards: DataType.INT
+        id: {
+            allowNull: false,
+            primaryKey: true,
+            type: dataTypes.INTEGER},
+        title: {type: dataTypes.STRING},
+        rating: {type: dataTypes.INTEGER},
+        awards: {type: dataTypes.INTEGER}
     },
     {
         timestamps : false
