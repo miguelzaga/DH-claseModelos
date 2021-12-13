@@ -1,10 +1,6 @@
 const db = require('./../database/models')
 
 const moviesController = {
-    // list: function(req,res){
-    //     console.log(db.Movie)
-    //     res.render("moviesList", {movies: []})
-    // }
     list: function(req, res){
         db.Movie
             .findAll()
@@ -14,7 +10,18 @@ const moviesController = {
             .catch(function(err){
                 return res.send(err)
             })
-            
+    },
+    detail: function(req, res){
+        db.Movie
+        .findByPk(req.params.id)
+        .then(function(movie){
+                return res.render("moviesDetail", {movie: movie})
+            })
+        .catch(function(err){
+            return res.send(err)
+        })
+
+        
     }
 }
 
