@@ -29,6 +29,19 @@ const moviesController = {
             .then(function(movies){
                 return res.render("newestMovies", {movies: movies})
             })
+    },
+    recommended: function(req, res){
+        db.Movie
+            .findAll({
+                order: [["rating", "DESC"]],
+                limit: 5
+            })
+            .then(function(movies){
+                return res.render('recommendedMovies', {movies: movies})
+            })
+            .catch(function(err){
+                return res.send(err)
+            })
     }
 }
 
